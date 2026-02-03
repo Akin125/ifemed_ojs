@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: Georgia, serif;
+    @apply bg-white text-gray-900;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-[#1e3a8a];
+  }
+
+  a {
+    @apply text-[#1e3a8a] hover:text-[#1e40af] transition-colors;
+  }
+}
