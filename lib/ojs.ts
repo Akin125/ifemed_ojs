@@ -2,6 +2,8 @@
 
 import type { LocalizedString } from "@/types/ojs";
 
+// IMPORTANT: These environment variables are server-side only (no NEXT_PUBLIC_ prefix)
+// They are never exposed to the client browser
 const OJS_API_KEY = process.env.OJS_API_KEY || "";
 const OJS_BASE_URL = process.env.OJS_BASE_URL || "";
 

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { getLocalizedValue } from "@/lib/ojs";
 
 export default function SearchPage() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -27,12 +28,6 @@ export default function SearchPage() {
     } finally {
       setLoading(false);
     }
-  };
-
-  const getLocalizedValue = (value: any): string => {
-    if (!value) return "";
-    if (typeof value === "string") return value;
-    return value.en_US || Object.values(value)[0] || "";
   };
 
   return (

@@ -92,9 +92,12 @@ async function ArticleContent({ id }: { id: string }) {
             <h2 className="text-2xl font-semibold mb-4">How to Cite</h2>
             <div className="bg-white p-4 rounded border">
               <p className="text-sm font-mono text-gray-800">
-                {article.authors && article.authors.map(author => 
-                  `${getLocalizedValue(author.familyName)}, ${getLocalizedValue(author.givenName)[0]}.`
-                ).join(", ")}
+                {article.authors && article.authors.map(author => {
+                  const givenName = getLocalizedValue(author.givenName);
+                  const familyName = getLocalizedValue(author.familyName);
+                  const initial = givenName && givenName.length > 0 ? givenName[0] + '.' : '';
+                  return `${familyName}, ${initial}`;
+                }).join(", ")}
                 {" "}
                 ({article.datePublished ? new Date(article.datePublished).getFullYear() : "n.d."}).
                 {" "}
