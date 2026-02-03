@@ -1,19 +1,6 @@
 import type { Metadata } from "next";
-import { Inter, Lora } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
-
-const lora = Lora({
-  subsets: ["latin"],
-  variable: "--font-lora",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   title: process.env.NEXT_PUBLIC_SITE_NAME || "IFEMED Journal",
@@ -34,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${lora.variable}`}>
+    <html lang="en">
       <body className="min-h-screen flex flex-col">
         {/* Header */}
         <header className="bg-white border-b border-academic-200 sticky top-0 z-50 shadow-sm">

@@ -13,10 +13,11 @@ import {
 export async function generateMetadata({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }): Promise<Metadata> {
   try {
-    const article = await getArticle(params.id);
+    const { id } = await params;
+    const article = await getArticle(id);
     const title = getLocaleValue(article.title);
     const abstract = getLocaleValue(article.abstract);
     const authors = formatAuthors(article.authors);
@@ -77,12 +78,13 @@ export async function generateMetadata({
 export default async function ArticlePage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
+  const { id } = await params;
   let article;
   
   try {
-    article = await getArticle(params.id);
+    article = await getArticle(id);
   } catch (error) {
     return (
       <div className="container-custom py-16">
