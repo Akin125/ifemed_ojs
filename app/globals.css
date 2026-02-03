@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  
+  body {
+    @apply bg-white text-academic-900 antialiased;
+  }
+
+  /* Editorial body text uses serif */
+  article {
+    @apply font-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-sans font-semibold text-academic-900;
+  }
+
+  a {
+    @apply text-primary-600 hover:text-primary-700 transition-colors;
+  }
+}
+
+@layer components {
+  /* Button styles */
+  .btn {
+    @apply px-4 py-2 rounded-lg font-sans font-medium transition-all duration-200;
+  }
+
+  .btn-primary {
+    @apply bg-primary-600 text-white hover:bg-primary-700 shadow-sm hover:shadow;
+  }
+
+  .btn-secondary {
+    @apply bg-academic-100 text-academic-900 hover:bg-academic-200;
+  }
+
+  .btn-outline {
+    @apply border border-academic-300 text-academic-700 hover:bg-academic-50;
+  }
+
+  /* Card styles */
+  .card {
+    @apply bg-white rounded-lg border border-academic-200 shadow-sm hover:shadow-md transition-shadow duration-200;
+  }
+
+  .card-body {
+    @apply p-6;
+  }
+
+  /* Badge styles */
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .badge-primary {
+    @apply bg-primary-100 text-primary-800;
+  }
+
+  .badge-success {
+    @apply bg-green-100 text-green-800;
+  }
+
+  .badge-warning {
+    @apply bg-yellow-100 text-yellow-800;
+  }
+
+  /* Container */
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Article content */
+  .article-content {
+    @apply prose prose-lg prose-academic max-w-none;
+  }
+
+  .article-content h2 {
+    @apply text-2xl font-serif font-bold mt-8 mb-4;
+  }
+
+  .article-content p {
+    @apply mb-4 leading-relaxed;
+  }
+
+  /* Form styles */
+  .form-input {
+    @apply block w-full px-3 py-2 border border-academic-300 rounded-lg shadow-sm 
+           focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500
+           transition-colors;
+  }
+
+  .form-label {
+    @apply block text-sm font-medium text-academic-700 mb-1;
+  }
+
+  .form-error {
+    @apply text-red-600 text-sm mt-1;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
