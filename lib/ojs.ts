@@ -72,7 +72,7 @@ export interface Submission {
   };
   stageId?: number;
   status?: number;
-  submissionProgress?: number;
+  submissionProgress?: number; // Progress percentage (0-100) for incomplete submissions
   urlPublished?: string;
   urlWorkflow?: string;
   galleys?: Galley[];
@@ -202,10 +202,15 @@ export function getLocaleValue(
 
 /**
  * Generate authentication headers for OJS API requests
+ * 
+ * Note: OJS 3.5 uses API Key authentication. The header name may vary
+ * based on your OJS configuration. Common headers include:
+ * - X-Csrf-Token (default for OJS 3.x)
+ * - Authorization: Bearer {token}
  */
 function getAuthHeaders(): HeadersInit {
   return {
-    'X-Csrf-Token': OJS_API_KEY,
+    'X-Csrf-Token': OJS_API_KEY, // OJS 3.x API Key header
     'Content-Type': 'application/json',
     'Accept': 'application/json',
   };
